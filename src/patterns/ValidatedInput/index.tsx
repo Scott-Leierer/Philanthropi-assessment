@@ -15,9 +15,9 @@ export const ValidatedInput: FC<IInput> = ({
 }) => {
   /*  Boolean used to determine size of placeholder text for state selection.
    *  There's a known bug where this gets reset on form verification or submission.
-   *  I haven't been able to find a solution.
+   *  I haven't been able to find a solution so I have disabled this.
    */
-  const [dropdownChanged, setDropdownChanged] = useState(false);
+  // const [dropdownChanged, setDropdownChanged] = useState(false);
   return (
     <InputStyles className={classNames(className, { error: errors !== undefined })}>
       {/* If type is string then we create a string input */}
@@ -43,7 +43,7 @@ export const ValidatedInput: FC<IInput> = ({
             defaultValue=""
             {...register(name, {
               ...validation,
-              onChange: () => setDropdownChanged(true),
+              // onChange: () => setDropdownChanged(true),
             })}
           >
             <option value="" disabled></option>
@@ -55,7 +55,8 @@ export const ValidatedInput: FC<IInput> = ({
           </select>
           {/* State placeholder works slightly differently */}
           <label
-            className={classNames("placeholder", { "big-text": !dropdownChanged })}
+            className="placeholder"
+            // className={classNames("placeholder", { "big-text": !dropdownChanged })}
             htmlFor={name}
           >
             {placeholder}
