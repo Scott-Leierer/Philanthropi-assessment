@@ -1,34 +1,19 @@
-# Welcome!
+# How to run
 
-Hi and welcome to the frontend take-home test! It was built using [`create-react-app`](https://github.com/facebook/create-react-app) on Node v14.18.1. We recommend using [`nvm`](https://github.com/nvm-sh/nvm) to install multiple copies of Node. There are some instructions below to get the build running.
+There are two applications to run here.
 
-# The Actual Assignment
+First, in the top level directory, run `yarn start` to run the front end.
 
-As for the assessment itself
+Then run the server by running `yarn start` from the server directory.
 
-1. We would like you to create a form that submits data. (The actual submit can be a console.log() output for now.)
+You should then be able to enter data and submit it using the Save & Continue button. This will send a POST to the server, which will return the data and display it in the console. There is a manufactured delay for the server to respond so the loading animation is visible on the button.
 
-2. The form needs to validate the inputs before submitting.
-
-- Included in the project is a great library called [`react-hook-form`](https://react-hook-form.com/). That should help with setting up the form state & validation.
-
-3. The form should match this layout design:
-
-- ![example form](form-design.png "example form")
-
-4. Please use the [`styled-components`](https://styled-components.com/) approach to build out the components and CSS. It's included in the build with a starter Button component.
-
-- Use your best judgment in terms of styling. It doesn't have to be 100% exact, but it should be relatively close.
-
-5. (OPTIONAL) As an added bonus, setup a fake API call that submits the address data. Use an endpoint like `https://jsonplaceholder.typicode.com/posts` to `POST` the data. You should receive the same data back that you send.
-
-- We included Axios and React-Query as libraries to use for API handling.
-
-# Testing (optional)
-
-All of the existing tests should be passing. Please add more tests for new components and features. They don't have to be too exhaustive, just test that components render as expected.
-
----
+Validations that will occur:
+1. Mailing address is required
+2. City is required
+3. State is required
+4. Zip code is required and must be a valid code of either 12345 or 12345-6789 format
+5. Mobile number is required and must match a common phone format (i.e. 123-456-7890, (123)456-7890, etc.)
 
 ---
 
