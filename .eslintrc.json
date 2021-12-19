@@ -1,0 +1,166 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:jsx-a11y/recommended",
+    "plugin:jest/recommended",
+    "plugin:testing-library/react"
+  ],
+  "plugins": ["react", "prettier", "@typescript-eslint", "import"],
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "globals": {
+    "process": false
+  },
+  "settings": {
+    "react": {
+      "version": "latest"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+
+        // Choose from one of the "project" configs below or omit to use <root>/tsconfig.json by default
+
+        // use <root>/path/to/folder/tsconfig.json
+        // "project": "path/to/folder",
+
+        // Multiple tsconfigs (Useful for monorepos)
+
+        // use a glob pattern
+        // "project": "packages/*/tsconfig.json",
+
+        // use an array
+        // "project": ["packages/module-a/tsconfig.json", "packages/module-b/tsconfig.json"],
+
+        // use an array of glob patterns
+        // "project": ["packages/*/tsconfig.json", "other-packages/*/tsconfig.json"]
+      }
+    }
+  },
+  "ignorePatterns": ["*.js", "*.jsx"],
+  "overrides": [
+    {
+      "files": ["src/**/*.css.ts"],
+      "rules": {
+        "no-confusing-arrow": 0
+      }
+    }
+  ],
+  "rules": {
+    "no-console": 1,
+    "no-else-return": 1,
+    "no-lonely-if": 2,
+    "no-debugger": 1,
+    "prettier/prettier": 1,
+    "import/no-unresolved": 2,
+    "import/no-named-as-default": 1,
+    "import/no-named-as-default-member": 1,
+    "import/no-cycle": 1,
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/jsx-indent": ["warn", 2],
+    "react/prop-types": [0],
+    "react/jsx-boolean-value": [1, "never"],
+    // linebreak style (run command `yarn eslint:fix` if it seems to be stuck)
+    "linebreak-style": [2, "unix"],
+    "quotes": [1, "double", { "allowTemplateLiterals": true }],
+    "object-shorthand": 1,
+    "semi": [2, "always"],
+    // a helpful warning to use "styled-components/macro" import
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "styled-components",
+            "message": "Please import from styled-components/macro."
+          }
+        ],
+        "patterns": ["!styled-components/macro"]
+      }
+    ],
+    "accessor-pairs": [
+      1,
+      {
+        "getWithoutSet": true,
+        "setWithoutGet": true
+      }
+    ],
+    "eqeqeq": [1, "smart"],
+    "brace-style": [
+      1,
+      "1tbs", // 1tbs - closing if bracket on same line as else
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "camelcase": 2,
+    "comma-style": 1,
+    "global-require": 2,
+    "no-multiple-empty-lines": [
+      1,
+      {
+        "max": 2,
+        "maxEOF": 1, // do not allow more than 1 empty line at end of file
+        "maxBOF": 0 // do not allow any blank lines at start of file
+      }
+    ],
+    "no-nested-ternary": 2,
+    "no-spaced-func": 0,
+    "no-whitespace-before-property": 1,
+    "object-property-newline": [
+      1,
+      {
+        "allowMultiplePropertiesPerLine": true // allow when all properties in an object literal are on the same line
+      }
+    ],
+    "space-before-blocks": [1, "always"],
+    "space-before-function-paren": [1, "always"],
+    "space-infix-ops": 1,
+    "space-unary-ops": [
+      1,
+      {
+        "words": true,
+        "nonwords": false
+      }
+    ],
+    // "arrow-parens": [2, "as-needed"],
+    "arrow-spacing": 1,
+    "no-confusing-arrow": 2,
+    "no-duplicate-imports": 2,
+    "no-var": 2,
+    "prefer-arrow-callback": 2,
+    "keyword-spacing": 1,
+    "spaced-comment": [1, "always"]
+  }
+}
